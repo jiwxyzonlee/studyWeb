@@ -1,0 +1,55 @@
+<!-- DTD - 문서의 구조를 설명 -->
+<!DOCTYPE html>
+
+<!-- 문서의 시작 -->
+<html>
+
+<!-- 문서에 대한 설정 -->
+<head>
+
+<!-- charset 설정이 없으면 한글이 깨질 수 있음 -->
+<meta charset="UTF-8">
+<title>HTML4</title>
+</head>
+
+<!-- 문서의 출력부분 -->
+<body>
+	<img src = "./resources/images/1.jpeg" width = "600" height = "400" border = "1"
+	usemap = "#pt"/>
+	
+	<map name = "pt">
+		<!-- 1사분면 -->
+		<area shape = "rect" coords = "0,0, 300,200" href = "https://en.wikipedia.org/wiki/Little_Miss_Sunshine" target = "_blank">
+		<!-- 3사분면 -->
+		<area shape = "rect" coords = "0,200, 300,400" href = "https://www.imdb.com/title/tt0449059/" target = "_blank">
+		<!-- 2사분면 -->
+		<area shape = "rect" coords = "300,0, 600,200" href = "https://movie.daum.net/moviedb/main?movieId=42291" target = "_blank">
+		<!-- 4사분면 -->
+		<area shape = "rect" coords = "300,200, 600,400" href = "https://www.rottentomatoes.com/m/little_miss_sunshine" target = "_blank">
+	</map>
+	
+	<!-- table 생성 -->
+	<h3 align = "center">연락처</h3>
+	<table border = "1" width = "400" align = "center">
+		<thead>
+			<tr>
+				<th width = "40%">이름</th> <!-- th는 제목이어서 굵은 글씨 -->
+				<th width = "60%">전화번호</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr>
+				<td>김새싹</td>
+				<td>01012345678</td>
+			</tr>
+		
+			<tr>
+				<td>박보리</td>
+				<td>01012538253</td>
+			</tr>
+		</tbody>
+	</table>
+	
+</body>
+</html>

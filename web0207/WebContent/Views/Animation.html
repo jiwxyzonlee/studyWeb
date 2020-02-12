@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BOM</title>
+
+<script>/*
+	var img = document.getElementById("img");
+	img.src = "./../resources/images/2.jpg"
+	//Uncaught TypeError: Cannot set property 'src' of null
+	//앞에 img 없음 script 뒤로 보내야 함*/
+</script>
+
+</head>
+<body>
+	<img src = "./../resources/images/1.jpeg" width = "80%" height = "80%" id = "img"/>
+	<div id = "disp"></div>
+	<script>
+		// 스크립트에서는 이벤트를 이용하지 않는 경우에는 만들어지지 않은 것은 사용 못함
+		// stylesheet는 코드를 전부 읽고 화면에 렌더링할 때 수행되기 때문에 시트를 먼저 만들어도
+		// 실행이 나중에 되므로 코드 작성 위치는 상관 없음
+		var img = document.getElementById("img");
+		//img.src = "./../resources/images/2.jpg"
+		var imgname = ["1.jpeg", "2.jpg", "3.jpg"];
+		
+		var text = ["C", "Java", "Python", "JavaScript"];
+		var disp = document.getElementById("disp");
+		
+		// 타이머 생성
+		// 1초마다 function을 실행하는 타이머
+		var i = 0;
+		var timer = setInterval(function() {
+			i = i + 1;
+			img.src = "./../resources/images/" + imgname[i % imgname.length];
+			disp.innerHTML = text[i % text.length];
+		}, 1000);
+		
+		// 접속한 기기 정보와 브라우저 정보를 출력
+		var userAgent = navigator.userAgent;
+		alert(userAgent)
+		//Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+		// 모바일 운영체제 이름 배열을 생성
+		// 애플 제품은 iphone과 ipad가 구분
+		// android 제품은 스마트폰과 태블릿이 구분이 안 됨
+		// 모바일 페이지를 만들 때 android를 고려하는 경우에는 pc버전이라는 버튼을 추가함
+		var mobile = ["iphone", "ipad", "android"];
+		
+		// userAgent에 mobile에 있는 텍스트가 있는지 확인
+		var result = false;
+		for (var idx in mobile) {
+			if (userAgent.toLowerCase().indexOf(mobile[idx]) >= 0) {
+				result = true; //(양수이면 값 존재)
+				break;
+			}
+		}
+		if (result == true) {
+			// location.href = "모바일페이지 URL";
+			alert("스마트폰에서 접속");
+		} else {
+			alert("pc에서 접속");
+		}
+	</script>
+</body>
+</html>

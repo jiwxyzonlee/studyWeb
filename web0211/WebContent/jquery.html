@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id = "disp"></div>
+	<!-- jquery 링크 설정 -->
+	<!-- 
+	https://www.jquery.com  -> download -> GoogleCDN
+	https://developers.google.com/speed/libraries#jquery
+	 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	
+	<!-- 
+	<script src = './js/jquery.js'></script>
+	-->
+	
+	<!-- 스크립트 (jquery 사용 가능) ajaxjson.html 파일보다 code 굉장히 간결 -->
+	<script>
+	// javascript 코드를 직접 입력하는 것보다 간결
+		$.ajax({
+			url: 'data.json',
+			dataType: 'json',
+			success:function(data) {
+				// 매개변수로 전달된 data에 파싱한 결과가 저장
+				alert(data); //[object Object],[object Object]
+			}
+		});
+	</script>
+</body>
+</html>

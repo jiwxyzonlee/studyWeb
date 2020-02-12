@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 연산자</title>
+
+<script>
+	document.write(100 + "의 자료형 : " + (typeof(100))) //자료형 : number
+	document.write("<br/>")
+	document.write("\"100\"" + "의 자료형 : " + (typeof("100")))
+	document.write("<br/>")
+	// 자신이 만든 메소드가 아닌 메소드의 결과로 나온 데이터의 자료형을 알지 못하면
+	// 반드시 자료형을 확인해보는 습관을 가져야 함
+	
+	// 값만 확인
+	document.write("100 == \"100\" : " + (100 == "100"))
+	document.write("<br/>")
+	// 자료형까지 확인
+	document.write("100 === \"100\" : " + (100 === "100"))
+	document.write("<br/>")
+	
+	// 배열(JavaScript의 배열은 python의 list처럼 Linked lsit)생성
+	var ar = [100, 200, 300]
+	delete ar [1]
+	document.write(ar) //100,,300
+	document.write("<br/>")
+	
+	// 객체의 클래스 종류 확인
+	var result = "123" * 3
+	document.write(result)
+	document.write("<br/>")
+	document.write(result instanceof String) //false
+	//document.write("result instance of String : " + result instanceof String)
+	document.write("<br/>")
+	
+	// 객체의 클래스 종류 확인
+	var Person = function() {
+		this.name = "name";
+	}
+	var obj = new Person();
+	// obj가 Person 타입의 객체인지 확인
+	document.write(obj instanceof Person); //true
+	document.write("<br/>");
+	
+	// if-else if-else
+	var year = 2020;
+	
+	if (year % 100 == 0) {
+		document.write("2020년은 윤년 아님");
+	} else if (year % 4 != 0 && year % 400 != 0) {
+		document.write("2020년은 윤년 아님");
+	} else {
+		document.write("2020년은 윤년");
+	}
+	document.write("<br/>");
+	
+	if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+		document.write(year + "년은 윤년");
+	}
+	document.write("<br/>");
+	
+	// year의 값이 윤년이면 윤년이라고 출력, 윤년이 아니면 윤년이 아니라고 출력
+	// 윤년의 조건: 4의 배수이고 100의 배수는 아닌 경우 또는 400의 배수인 경우
+	// 100의 배수는 평년
+	
+	var nal = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+	// 윤년인 경우는 28을 29로 수정
+	// 인덱스가 특별한 의미를 갖는 경우 배열을 만들 때 굳이 0번째부터 데이터를 삽입할 필요가 없음
+	// 이해하기 쉽도록 만드는 것이 알고리즘 설계상 훨씬 유리
+	if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+		nal[2] = 29;
+		document.write("2020년은 윤년");
+		document.write("<br/>");
+		document.write("2020년 2월의 마지막 날짜 : " + nal[2]);
+		document.write("<br/>");
+	}
+	
+	// switch
+	var temp = 5;
+	// temp가 1이면 중식, 2이면 한식, 3이면 분식, 나머지는 금식
+	switch (temp) {
+		case 1:
+			document.write("중식");
+			document.write("<br/>");
+			break;
+		case 2:
+			document.write("한식");
+			document.write("<br/>");
+			break;
+		case 3:
+			document.write("분식");
+			document.write("<br/>");
+			break;
+		default:
+			document.write("금식");
+			document.write("<br/>");
+			break;
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

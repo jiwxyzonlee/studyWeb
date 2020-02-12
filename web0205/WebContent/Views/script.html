@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+</head>
+<body>
+
+<script>
+	// 변수 만들기
+	var msg = "JavaScript"
+	
+	// 브라우저에 출력
+	// 줄바꿈 태그 추가
+	document.write(msg +  "<br/>")
+	
+	// 대화상자에 출력
+	alert("대화상자에 출력")
+	
+	// Console에 촐력
+	console.log("Console에 출력")
+	
+	// JavaScript에서는 변수를 만들고 값을 대입하지 않으면 없는 것으로 간주
+	// 이런 경우는 undefined
+	var x;
+	document.write(x);
+	
+	document.write("<br/>")
+	
+	document.write("20" * 10 + "<br/>"); //200
+	// 숫자로 구성된 문자열에 곱하기를 하면 숫자로 변환해서 계산
+	
+	// 문자열과 숫자를 + 연산할 시 숫자를 문자열로 변환해서 결합
+	document.write("20" + 10 + "<br/>"); //2010
+	document.write(Number("20") + 10); //30
+	
+	document.write("<br/>")
+	
+	document.write((20&13) + "<br/>"); // 4
+	document.write((20|13) + "<br/>"); // 29
+	document.write((20^13) + "<br/>"); // 25
+</script>
+
+</body>
+</html>

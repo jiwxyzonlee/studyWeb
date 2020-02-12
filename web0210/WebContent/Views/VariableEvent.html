@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>다양한 이벤트 처리</title>
+<script>
+	// window가 로드되면  function을 수행
+	// window가 load된다는 것은 태그를 전부 읽고 메로리에 올리고 난 후임
+	window.addEventListener("load", function(e) {
+		var n = document.getElementById("name");
+		n.value = "이름을 입력하세요!"
+		
+		// 포커스가 생길 때
+		n.addEventListener("focusin", function(e) {
+			this.style.backgroundColor = "papayawhip";
+		});
+		// 포커스 없어질 때
+		n.addEventListener("focusout", function(e) {
+			this.style.backgroundColor = "white";
+		});
+		// 키보드를 눌렀을 때 누른 키 값을 대화상자에 출력
+		n.addEventListener("keydown", function(e) {
+			// 이벤트로 객체 만들기
+			var e = window.event || e;
+			// 누른 키값 가져오기
+			// IE가 아닌 경우는 이벤트 객체의 which 속성으로 그리고 IE이면 keyCode 속성으로 누른 키값을 가져옴
+			var code = e.which ? e.which : e.keyCode;
+			alert(code)
+		})
+	});
+</script>
+
+</head>
+<body>
+	<input type = "text" id = "name" size = "20"/>
+	<input type= "text" size = "20"/>
+</body>
+</html>

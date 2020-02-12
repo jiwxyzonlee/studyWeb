@@ -1,0 +1,115 @@
+/*BoxBoard.html*/
+
+/*태그로 스타일 적용하는 방법*/
+/*h1{
+	
+}*/
+
+/*클래스로 스타일 적용하는 방법*/
+.korea{
+	/*속성:값;*/
+	color:#000000;
+	width:200px;
+	line-heignt:30px;
+	text-align:center;
+	padding:30px; /*내부 여백, 경계선과 콘텐츠와의 여백*/
+	border:1px solid rgb(18, 52, 88);
+	/*여러 속성의 값을 한 번에 적용할 때 공백으로 구분*/
+	/* ',(쉼표)'는 동일한 속성의 값을 여러 개 적용할 때 구분 */
+	background:#eeeeee;
+	/* 속성을 여러 개의 값으로 지정할 수 있는 속성의 경우 뒤에서부터 값 생략 가능*/
+	/* CSS나 JavaScript는 옵션에 전부 기본값이 설정되어 있음*/
+	border-radius:15px;
+	box-shadow:inset 0px 0px 20px 15px rgba(18, 52, 88, 0.6);
+	/*inset 없애면 바깥쪽으로 blur 효과*/
+}
+
+.korea p{vertical-align:middle;}
+
+/* menu 클래스를 가진 객체들을 왼쪽에서부터 배치하고 오른쪽에 다른 콘텐츠를 배치할 수 있도록 설정*/
+.menu{
+	float:left;
+	margin:10px;
+	
+}
+/*title 클래스를 가진 객체는 이전에 적용된 float를 해제하고 원래대로 배치*/
+.title{
+	clear:both;
+}
+
+table{
+	border:1px solid black;
+	width:400px;
+}
+
+th, td{
+	width:200px;
+}
+
+.contents{
+	width:420px;
+	height:100px;
+	overflow:auto;
+}
+
+#transform{
+	width:200px;
+	height:60px;
+	text-align:center;
+	background-color:green;
+	
+	/*scale(크기조절-그러나 정확히 크기를 늘리는 개념은 아님) 다른 영역까지 침범 가능*/
+	/* transform 변환은 원본의 속성을 변경하는 것이 아니고
+	출력될 때 행렬과의 연산을 이용해서 보일 때만 그렇게 되도록 하는 것*/
+	/*-webkit-transform:scale(2.0);*/
+	/*rotate(회전-각도명시)*/
+	/*-webkit-transform:rotate(180deg);*/
+	/*skew 는 각도 두 개 입력 필요 (근본적으로 transform은 아님)*/
+	/*-webkit-transform:skew(180deg, 45deg);*/
+}
+
+/*Animation.html*/
+
+#menu{
+	font: 20px;
+	width: 150px;
+	height: 20px;
+	color: red;
+	background: #abc;
+	
+	-webkit-transition: width 3.0s;
+	-webkit-transition: color 1.0s;
+	-webkit-transition: background-color 1.0s;
+}
+
+#menu:hover{
+	width: 300px;
+	color: black;
+	background-color: papayawhip;
+}
+
+@-webkit-keyframes keyany{
+	from{
+		left: 0px;
+		top: 0px;
+		/*background-color:papayawhip;*/ /*jpg나 gif는 배경색 안 먹음. png는 됨*/
+		-webkit-transform: rotate(0deg);
+	}
+	30%{
+		left: 700px;
+		top: 0px;
+	}
+	to{
+		left: 700px;
+		top: 200px;
+		/*background-color:red; *//*jpg나 gif는 배경색 안 먹음. png는 됨*/
+		-webkit-transform: rotate(3600deg);
+	}
+}
+img{
+	position: absolute; /*이동하려면 position이 항상 absolute여야 함*/
+	-webkit-animation-name: keyany;
+	-webkit-animation-duration: 10s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction:alternate;
+}

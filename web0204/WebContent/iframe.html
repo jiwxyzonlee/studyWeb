@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>iframe</title>
+</head>
+<body>
+
+<!-- 링크의 내용을 content에 출력 
+iframe은 출력 결과를 가져오는 것이고 ajax는 데이터를 가져오는 것 -->
+<a href = "http://www.chosun.com" target = "content">조선일보</a>
+<a href = "http://www.hani.co.kr" target = "content">한겨레</a>
+<a href = "http://www.donga.com" target = "content">동아일보</a>
+<!-- 이런 상태에선 내용 바로 못 가져오고 switchToFrame 필요 -->
+<br/>
+
+<iframe name = "content"
+	width = "600" height = "600" src = "http://www.choongang.co.kr">
+
+</iframe>
+
+</body>
+</html>

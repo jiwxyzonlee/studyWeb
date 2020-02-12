@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>javaWeb0212</display-name>
+  
+  <!-- 프로젝트를 실행했을 때와 파일 경로를 입력하지 않았을 때 나타날 페이지 설정 -->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 초기화 파라미터 -->
+  <context-param>
+  	<param-name>dburl</param-name>
+  	<param-value>211.183.6.42:1521/xe</param-value>
+  </context-param>
+</web-app>

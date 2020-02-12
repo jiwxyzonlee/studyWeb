@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+
+<script>
+	/*
+	for (var i = 0;i < 10; i = i + 1) {
+		document.write("<p>" + "Hello JavaScript" + "</p>");
+	}
+	*/
+	
+	/*
+	var i = 0
+	while (i < 10) {
+		document.write("<p>" + "Hello JavaScript" + "</p>");
+		i = i + 1;
+	}
+	*/
+	
+	// do ~ while 은 반드시 한 번은 수행한다는 의미를 전달하는 목적으로 많이 사용
+	var i = 0
+	do {
+		document.write("<p>" + "Hello JavaScript" + "</p>");
+		i = i + 1;
+	} while (i < 10);
+	
+	var ar = ["JavaScript", "TypeScript"];
+	// 배열을 순회
+	// temp에 인덱스가 대입됨
+	for (var temp in ar) {
+		document.write("<p>" + temp + "</p>"); // 0과 1 출력
+		document.write("<p>" + ar[temp] + "</p>") // 데이터 보이기
+	}
+	
+	// location 객체의 모든 속성을 확인
+	// 객체를 for에 대입하면 모든 속성을 임시변수에 대입해줌
+	for (var attr in location) {
+		document.write("<p>" + attr + "</p>")
+	}
+	document.write("<br/>");
+	
+	// 별(*) 역삼각형으로 만들기
+	for (var line = 0;line < 5;line = line + 1) {
+		for(var i = 0;i < 5 - line;i = i + 1) {
+			document.write("*");
+		}
+		document.write("<br/>");
+	}
+	document.write("<br/>");
+	
+	// 1부터 10까지 출력 - 3의 배수가 되면 종료
+	// continue 는 특정 조건을 만족하는 경우 수행하지 않도록 할 때 사용
+	for (var i = 1; i < 11; i = i + 1) {
+		// 제어문에서 수행 내용이 1즐 이면 {중괄호} 생략 가능
+		if (i % 3 == 0) break;
+		document.write(i + "<br/>");
+	}
+	
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

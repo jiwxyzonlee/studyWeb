@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>버튼 누르는 효과</title>
+<style>
+	img{
+		width:100px;
+		height:100px;
+	}
+	/* img를 클릭할 때 위와 왼쪽에 여백을 설정해서 이동 - 누르는 것처럼 보이게*/
+	img:active{
+		margin-left:3px;
+		margin-top:3px;
+	}
+	
+	#btn{
+		width:100px;
+		height:100px;
+		background:papayawhip;
+		margin-bottom:10px; /*아래 버튼과 공간*/
+		border-width:5px;
+		border-style:solid;
+		border-left-color:orange;
+		border-top-color:orange;
+		border-right-color:red;
+		border-bottom-color:red;
+	}
+	/*
+	#btn:active{
+		border-width:5px;
+		border-style:solid;
+		border-left-color:red;
+		border-top-color:red;
+		border-right-color:orange;
+		border-bottom-color:orange;
+	}
+	*/
+	
+	#btn:active{
+		background-image:url("./../resources/images/button3.jpg");
+		width:30px;
+		height:30px;
+	}
+	
+	
+</style>
+</head>
+<body>
+	<div id = "btn">버튼</div>
+	<div id = "btn1">
+		<a href = "#"><img src = "./../resources/images/button.jpeg"/>
+		</a>
+	</div>
+</body>
+</html>

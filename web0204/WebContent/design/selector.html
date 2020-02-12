@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>선택자</title>
+
+<style>
+	/* h3에 적용 */
+	h3{color : red;}
+	
+	/* content라는 class 속성을 가진 태그에 적용 */
+	.content{color : blue;}
+	
+	/* article이라는 id 속성을 가진 태그에 적용 */
+	#article{color : #9900ff;}
+	
+	/* h3 태그에 마우스가 올라오면 글자의 배경색을 파란색으로 설정 */
+	h3:hover{background-color:blue;}
+	/*클릭하면*/
+	h3:active{background-color:green;}
+	
+	/* input 태그에 포커스가 설정되면 배경색을 변경*/
+	input:focus{backgroundcolor:magenta;}
+	
+	/* h4{color : blue;}
+	p{color : blue;} */
+	
+	div > span {color : red;}
+	p span{color : red;}
+	/* p 바로 아래 있는 span에만 적용 */
+	p > span{background-color:orange;}
+	
+	p{color:red;}
+	.content{color:blue;}
+	#article{color:green;}
+	
+	#first{
+		font-weight:900; /*폰트 굵게*/
+		font-size:24pt;
+	}
+	#second{
+		font:bold normal small-caps 18px / 1.6 "돋움";
+	}
+</style>
+
+</head>
+<body>
+	<p id = "first">안녕하세요 반갑습니다.</p>
+	<p id = "second">안녕하세요 반갑습니다.</p>
+
+	<div><p><span>안녕하세요</span></p></div>
+	<p><span>반갑습니다</span></p>
+
+	<input type = "text" />
+	<h3>안녕하세요</h3>
+	
+	<h4 class = "content">내용</h4>
+	<p class = "content">문단내용</p>
+	
+	<p id = "article">기사 내용</p>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수</title>
+<script>
+	var func = function() {
+		// 어떤 변수나 연산식의 결과를 확인하고자 할 때 콘솔에 출력해 본다
+		console.log("함수");
+	}
+	
+	func()
+	// ()을 하지않고 함수를 호출하면 함수가 저장된 곳의 위치나 함수의 내용
+	document.write(func) //function(){ console.log("함수"); }
+	
+	// 매개변수가 두 개인 함수
+	var func1 = function (a, b) {
+		console.log(a);
+		console.log(b);
+	}
+	
+	// 2개의 매개변수를 대입해서 함수를 호출
+	func1(100, 200);
+	// 1개의 매개변수만 대입 - 대입하지 않은 b는 undefined
+	func1(300)
+	
+	// 매개변수가 없지만 함수 내에서  arguments라는 배열로 매개변수를 받을 수 있음
+	// JavaScript나 Python의 함수들은 도큐먼트를 읽고 사용하는 것이 좋음
+	var func2 = function() {
+		for(var i in arguments) {
+			console.log(arguments[i]);
+		}
+	}
+	func2(200, 900);
+	
+	// 함수가 함수를 리턴해서 내부의 데이터를 조작할 수 있도록 하는 것을 closure라고 함
+	var f = function() {
+		var inner = 0;
+		
+		// 함수를 리턴
+		return function() {
+			inner = inner + 1;
+			document.write("<br/>" + inner)
+		}
+	}
+	
+	var k = f();
+	// f를 호출한 결과를 k에 저장, k도 함수가 됨
+	// k()를 호출하면 inner의 값이 1씩 증가하며 출력됨
+	k()
+	k()
+	//document.write(inner);
+	//Uncaught ReferenceError: inner is not defined
+	
+	// alert("메시지 대화상자")
+	// confirm
+	var result = confirm("정말로 삭제하시겠습니까?");
+	document.write("<br/>" + result);
+	
+	// prompt (입력 안 하고 눌렀을 때 조심 - ""이 리턴됨)
+	var result = prompt("이름을 입력하세요");
+	document.write("<br/>" + result);
+	
+	var url = "http://www.daum.net?name=박문석&addr=서울시양천구목동";
+	document.write("<br/>" + escape(url));
+	// 이 메소드는 파라미터만 인코딩함
+	// 주소부분은 인코딩하지 않음
+	// URL은 파라미터 부분만 인코딩해야 함
+	document.write("<br/>" + encodeURI(url));
+	document.write("<br/>" + encodeURIComponent(url));
+	
+	var str = "1234";
+	document.write("<br/>" + parseInt((str)+1));
+	
+	// 문자열의 길이는  length 속성, 문자 1개를 아스키코드로 변환해주는 함수는 charCodeAt(인덱스)
+	// 정수 문자열을 정수로 변환
+	var x = 0;
+	for(var i = 0; i < str.length; i = i + 1) {
+		// alert(str.charCodeAt(i));
+		x = x * 10 + (str.charCodeAt(i) - 48);  // str.charCodeAt(i) 가 49부터 시작
+		// 계산기 원리
+	}
+	document.write("<br/>" + (x + 1));
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

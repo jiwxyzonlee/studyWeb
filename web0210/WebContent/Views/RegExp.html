@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>정규식</title>
+<script>
+	var msg = "안녕하세요 반갑습니다.";
+	//var msg = "안녕하세요 반갑습니다S2.";
+	// msg에 숫자가 포함되어 있는지 확인
+	
+	// 정규식 패턴 생성
+	var reg = /[0-9]/;
+	
+	// msg에 re의 패턴이 존재하면
+	if (reg.test(msg)) {
+		console.log("숫자가 포함되어 있습니다.");
+	} else {
+		console.log("숫자가 포함되어 있지 않습니다.");
+	}
+	
+	msg = "봉준호가 기생충 각본상 봉준호의 기생충 감독상 봉준어 기생충 국제영화상 오스카봉준호 작품상"
+	var result = msg.split(/봉준호/)
+	for (i in result) {
+		document.write(result[i] + "<br/>");
+	} // 봉준호 빼고 다 나옴(출력해보면 봉준호 있는 곳마다 문장 나눠짐)
+	//가 기생충 각본상
+	//의 기생충 감독상 봉준어 기생충 국제영화상 오스카
+	//작품상
+	
+	// 처음 만나는 봉준호는 삭제, 아무것도 없는 글자와 치환
+	result = msg.replace(/봉준호/, "");
+	document.write(result + "<br/>");
+	//가 기생충 각본상 봉준호의 기생충 감독상 봉준어 기생충 국제영화상 오스카봉준호 작품상
+	
+	// gm이라는 한정자 사용 - 문자열의 모든 곳에서 치환
+	result = msg.replace(/봉준호/gm, "");
+	document.write(result + "<br/>");
+	//가 기생충 각본상 의 기생충 감독상 봉준어 기생충 국제영화상 오스카 작품상
+	
+	result = msg.replace(/봉준호$/gm, "");
+	document.write(result + "<br/>");
+	//봉준호가 기생충 각본상 봉준호의 기생충 감독상 봉준어 기생충 국제영화상 오스카봉준호 작품상
+	
+	result = msg.replace(/^봉준호/gm, "");
+	document.write(result + "<br/>");
+	//가 기생충 각본상 봉준호의 기생충 감독상 봉준어 기생충 국제영화상 오스카봉준호 작품상
+	
+	result = msg.replace(/^봉준호$/gm, "");
+	document.write(result + "<br/>");
+	//봉준호가 기생충 각본상 봉준호의 기생충 감독상 봉준어 기생충 국제영화상 오스카봉준호 작품상
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

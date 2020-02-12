@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax 요청</title>
+</head>
+<body>
+	<div>고정된 내용</div>
+	<div id = "disp">동적으로 변경하는 내용</div>
+	<div>고정된 내용</div>
+	
+	<script>
+		// ajax를 이용하여 data.txt 파일의 내용을 읽어서 disp 영역에 출력
+		var disp = document.getElementById("disp");
+		
+		// ajax 객체 생성
+		var request;
+		if (window.ActiveXObject) {
+			request = new ActiveXObject("Microsoft.XMLHTTP");
+		} else {
+			request = new XMLHttpRequest();
+		}
+		
+		// 요청 옵션을 생성 - data.txt를 GET방식으로 요청
+		request.open('GET', './../Resources/txt/data.txt');
+		
+		// 30초마다 계속 수행되는 타이머
+		setInterval(function() {
+			// 요청을 전송 (30초마다 계속)
+			request.send('');
+		}, 30000)
+		
+		//request.send('');
+		
+		// 비동기 실행 - 콜백이 존재
+		// 비동기는 언제 종료될지 모르기 때문에 종료된 후에 어떤 동작을 수행하고자 하면
+		// 콜백 메소드에 작성
+		// callback : 어떤 이벤트가 발생하면 호출되는 메소드
+		// 파일을 읽는 부분도 마찬가지 - 파일을 읽어주세요 요청 - 파일을 전부 읽으면(load) 동작 수행
+		
+		// 콜백 메소드를 등록
+		request.onreadystatechange = function() {
+			// 응답을 정상적으로 받은 경우
+			if (request.readyState == 4 && request.status >= 200 && request.status < 300) {
+				// 읽어온 데이터를 disp에 출력
+				disp.innerHTML = request.responseText;
+			}
+		}
+	</script>
+</body>
+</html>

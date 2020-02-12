@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 처리</title>
+</head>
+<body>
+	<span id ="disp">텍스트</span>
+	<!-- 인라인 이벤트 모델 : 태그 안에서 이벤터 처리
+	태그에 스크립트 코드가 있어 알아보기가 어려움 <- 유지보수가 어려움
+	길게 작성하기도 어려움 -->
+	<input type = "button" id = "stylebtn" value = "글자색상변경"
+	onclick = "document.getElementById('disp').style.color = 'red';"/>
+	
+	<input type = "button" id = "contentbtn" value = "텍스트 내용 변경"/>
+	
+	<input type = "button" id = "standardbtn" value = "내용과 스타일 변경"/>
+	
+	<form action = "server.jsp" id = "myform">
+		전화번호:<input type = "text" name = "tel" id = "tel"/>
+		<input type = "submit" value = "전송"/>
+	</form>
+	
+	<div id = "outer">부모 DOM
+		<p id = "inner">자식 DOM</p>
+	</div>
+	
+	<script>
+		var outer = document.getElementById("outer");
+		var inner = document.getElementById("inner");
+		outer.addEventListener("click", function(e) {
+			alert("outer에 click이벤트 발생");
+		});
+		inner.addEventListener("click", function(e) {
+			alert("inner에 click이벤트 발생");
+			
+			// 이벤트 버블링 막기
+			var evt = window.event || e;
+			// cancelBubble 속성이 있으면 true를 대입
+			evt.cancelBubble = true;
+			// stopPropagation이라는 함수가 있으면 함수 호출 - IE 이외의 브라우저에서 동작
+			if (evt.stopPropagation) {
+				evt.stopPropagation();
+			}
+		});
+		
+		var myform = document.getElementById("myform");
+		var tel = document.getElementById("tel");
+		
+		myform.addEventListener("submit", function(e){
+			// tel 에 아무것도 입력한 것이 없으면 폼을 전송하지 않음
+			if (tel.value.trim().length <= 0) {
+				alert("전화번호는 필수 입력입니다.");
+				
+				// 기본 이벤트 처리 코드 제거 (페이지 넘어가지 못하도록 함)
+				var evt = window.event || e;
+				evt.preventDefault();
+			}
+		});
+	
+		// DOM 객체 찾기
+		var disp = document.getElementById("disp");
+		var contentbtn = document.getElementById("contentbtn");
+		var standardbtn = document.getElementById("standardbtn");
+		
+		// 고전적 이벤트 처리 모델 - 이전에도 많이 사용했고 최근에도 많이 사용
+		contentbtn.onclick = function(e) {
+			// 태그 안의 내용 변경
+			disp.innerHTML = "변경된 텍스트";
+		};
+		
+		// 표준 이벤트 처리 모델 - W3C 권장
+		standardbtn.addEventListener("click", function(e) {
+			disp.innerHTML = "표준 이벤트 모델";
+			disp.style.backgroundColor = "papayawhip";
+			// this는 이벤트가 발생한 객체 - 자기 자신에게 어떤 변경을 적용하고자 하는 경우에 사용
+			this.value = "버튼 이름 변경";
+			// 이벤트가 발생한 좌표 확인
+			// 이벤트 객체 가져오기 (IE와 모든 브라우저에서 사용할 수 있도록)
+			// window객체에 event 속성이 있으면 가져오고 없으면 매개변수 e 사용
+			var evt = window.event || e;
+			console.log(e.screenX + ":" + e.screenY);
+		});
+	</script>
+</body>
+</html>

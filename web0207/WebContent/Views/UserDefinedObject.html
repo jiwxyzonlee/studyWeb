@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사용자 정의 객체</title>
+<script>
+	// 속성이름은 문자열로 만들어져야 하기 때문에 ""를 생략해도 됨
+	var obj = {name:"Jonathan", age:17
+			, disp:function(){document.write(this.name + " : " + this.age);}}
+	// JavaScript나 Python에서는 함수 안에서 자신의 속성을 호출하려면 this를 붙여야 함
+	// python에서 관습적으로 self를 사용지만 JavaScript는 this
+	
+	obj.disp(); // 함수 호출
+	document.write("<br/>" + obj.name + " : " + obj["age"]);
+	// name은 존재하는 속성이라서 true, address는 없어서 false
+	document.write("<br/>" + ("name" in obj)); // true
+	document.write("<br/>" + ("address" in obj)); //false
+	
+	// 생성자 함수 = this를 이용해서 name, age, disp라는 속성을 생성
+	var Person = function(name, age){
+		this.name = name;
+		this.age = age;
+		this.disp = function(){
+			document.write("<br/>" + this.name + " : " + this.age);
+		}
+	};
+	// 맨 위처럼 만들면 함수를 한 번 만들고 끝이지만 이런 방법이면 계속 만들 수 있음
+	
+	// JavaScript는 클래스의 개념이 없어서 객체 지향 언어라는 표현을 사용하지 않고
+	// 객체 기반 언어라는 표현을 사용
+	// 최근에는 JavaScript에 객체 지향의 개념을 도입한 TypeScript가 등장
+	// 생성자를 이용한 객체 생성
+	var person1 = new Person("Will", 12);
+	// 속성 추가
+	person1.address = "Hawkins, Indiana"
+	// 속성 제거
+	delete(person1.age);
+	person1.disp();
+</script>
+</head>
+<body>
+
+</body>
+</html>
